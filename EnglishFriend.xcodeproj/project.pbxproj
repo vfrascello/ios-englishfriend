@@ -44,6 +44,8 @@
 		6145475E265B664B00C85B96 /* PasswordResetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6145475B265B664B00C85B96 /* PasswordResetView.swift */; };
 		6168DB82265B8C4000CB2BA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6168DB81265B8C4000CB2BA2 /* GoogleService-Info.plist */; };
 		C49AE5BA265B755000884AE1 /* EnglishFriendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5B9265B755000884AE1 /* EnglishFriendUser.swift */; };
+		C49AE5BE265B8DA800884AE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C49AE5BD265B8DA800884AE1 /* GoogleService-Info.plist */; };
+		C49AE5C0265C1CF800884AE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5BF265C1CF800884AE1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		6145475B265B664B00C85B96 /* PasswordResetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordResetView.swift; sourceTree = "<group>"; };
 		6168DB81265B8C4000CB2BA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C49AE5B9265B755000884AE1 /* EnglishFriendUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishFriendUser.swift; sourceTree = "<group>"; };
+		C49AE5BD265B8DA800884AE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C49AE5BF265C1CF800884AE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				6168DB81265B8C4000CB2BA2 /* GoogleService-Info.plist */,
+				C49AE5BD265B8DA800884AE1 /* GoogleService-Info.plist */,
 				614546F0265B5A0C00C85B96 /* EnglishFriend */,
 				61454702265B5A0D00C85B96 /* EnglishFriendTests */,
 				6145470D265B5A0D00C85B96 /* EnglishFriendUITests */,
@@ -205,6 +210,7 @@
 				61454736265B5F5200C85B96 /* KeyboardAvoidance */,
 				6145473A265B5F5200C85B96 /* DateHelper.swift */,
 				6145473B265B5F5200C85B96 /* Validation */,
+				C49AE5BF265C1CF800884AE1 /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -388,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				614546F9265B5A0C00C85B96 /* Preview Assets.xcassets in Resources */,
+				C49AE5BE265B8DA800884AE1 /* GoogleService-Info.plist in Resources */,
 				614546F6265B5A0C00C85B96 /* Assets.xcassets in Resources */,
 				6168DB82265B8C4000CB2BA2 /* GoogleService-Info.plist in Resources */,
 			);
@@ -419,6 +426,7 @@
 				61454747265B5F5200C85B96 /* LazyView.swift in Sources */,
 				6145474A265B5F5200C85B96 /* EmailTextField.swift in Sources */,
 				6145474C265B5F5200C85B96 /* ImagePicker.swift in Sources */,
+				C49AE5C0265C1CF800884AE1 /* Constants.swift in Sources */,
 				614546F4265B5A0C00C85B96 /* ContentView.swift in Sources */,
 				614546F2265B5A0C00C85B96 /* EnglishFriendApp.swift in Sources */,
 				61454743265B5F5200C85B96 /* SegmentedPicker.swift in Sources */,

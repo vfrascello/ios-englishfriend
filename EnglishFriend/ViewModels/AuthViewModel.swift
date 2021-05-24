@@ -37,7 +37,7 @@ class AuthViewModel: ObservableObject {
         }
     }
 
-    func createUser(email: String, password: String , username: String, completion: @escaping (Bool) -> Void) {
+    func createUser(email: String, password: String , username: String, primaryLanguage: Int, completion: @escaping (Bool) -> Void) {
 
         Auth.auth().createUser(withEmail: email, password: password) { [self] result, error in
                     if let error = error {
@@ -51,7 +51,8 @@ class AuthViewModel: ObservableObject {
 
                     let data: [String: Any] = ["email": email,
                                                "uid": user.uid,
-                                               "username" : username]
+                                               "username" : username,
+                                               "primaryLanguage" : Constants.primaryLanguageOptions[primaryLanguage]]
 
 
 

@@ -5,6 +5,7 @@ struct RegistrationView: View {
     @State var email = ""
     @State var password = ""
     @State var username = ""
+    @State var primaryLanguage = 0
     @State var selectedUIImage: UIImage?
     @EnvironmentObject var viewModel: AuthViewModel
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -29,12 +30,18 @@ struct RegistrationView: View {
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
+                    
+                    Picker("Favorite Color", selection: $primaryLanguage, content: {
+                        Text(Constants.primaryLanguageOptions[0]).tag(0)
+                        Text(Constants.primaryLanguageOptions[1]).tag(1)
+                        Text(Constants.primaryLanguageOptions[2]).tag(2)
+                        })
 
                 }.disableAutocorrection(true)
                 .padding(.horizontal, 40)
                 .foregroundColor(.white)
                 Button(action: {
-                    viewModel.createUser(email: email, password: password, username: username) { registrationComplete in
+                    viewModel.createUser(email: email, password: password, username: username, primaryLanguage: primaryLanguage) { registrationComplete in
                         print("new user created:", registrationComplete)
                     }
                         print("Arsbic Conversion complete efore")
