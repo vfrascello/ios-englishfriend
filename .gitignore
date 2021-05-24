@@ -10,8 +10,8 @@
 ### Firebase Patch ###
 .runtimeconfig.json
 .firebase/
-**/GoogleServices-Info.plist
-*/GoogleServices-Info.plist
+**/GoogleService-Info.plist
+*/GoogleService-Info.plist
 
 
 ### macOS ###
