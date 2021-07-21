@@ -23,52 +23,58 @@ class AuthViewModel: ObservableObject {
 
     func login(withEmail email: String, password: String)
     {
+        LoadingState.shared.isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            //prevent loading screen of death.  Eventually change isLoading into an enum with an error state that shows various connectivity errors.
+            LoadingState.shared.isLoading = false
+        }
         Auth.auth().signIn(withEmail: email, password: password) { result, error in
             if let error = error {
                 Crashlytics.crashlytics().log("[ERROR] AuthViewModel.login() error = \(error.localizedDescription)")
                 self.authenticationFailed = true
+                LoadingState.shared.isLoading = false
                 return
             }
-
-
-
             self.authenticationFailed = false
             self.userSession = result?.user
+            LoadingState.shared.isLoading = false
         }
     }
 
-    func createUser(email: String, password: String , username: String, primaryLanguage: Int, completion: @escaping (Bool) -> Void) {
+    func createUser(email: String, password: String, username: String, primaryLanguage: Int, completion: @escaping (Bool) -> Void) {
 
+        LoadingState.shared.isLoading = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 15) {
+            //prevent loading screen of death.  Eventually change isLoading into an enum with an error state that shows various connectivity errors.
+            LoadingState.shared.isLoading = false
+        }
         Auth.auth().createUser(withEmail: email, password: password) { [self] result, error in
-                    if let error = error {
-                        Crashlytics.crashlytics().log("[ERROR] AuthViewModel.registerUser() error = \(error.localizedDescription)")
+            if let error = error {
+                Crashlytics.crashlytics().log("[ERROR] AuthViewModel.registerUser() error = \(error.localizedDescription)")
+                LoadingState.shared.isLoading = false
+                completion(true)
+                return
+            }
+            guard let user = result?.user else {
+                LoadingState.shared.isLoading = false
+                return }
 
-                        completion(true)
-
-                        return
-                    }
-                    guard let user = result?.user else { return }
-
-                    let data: [String: Any] = ["email": email,
-                                               "uid": user.uid,
-                                               "username" : username,
-                                               "primaryLanguage" : Constants.primaryLanguageOptions[primaryLanguage]]
-
-
-
-                    Firestore.firestore().collection("users").document(user.uid).setData(data) { error in
-                        if error != nil {
-                            Crashlytics.crashlytics().log("[ERROR] AuthViewModel.registerUser() error = \(error!.localizedDescription)")
-                        }
-                        else {
-                            completion(true)
-                            self.userSession = user
-                        }
-                    }
+            let data: [String: Any] = ["email": email,
+                                       "uid": user.uid,
+                                       "username": username,
+                                       "primaryLanguage": Constants.primaryLanguageOptions[primaryLanguage]]
+            Firestore.firestore().collection("users").document(user.uid).setData(data) { error in
+                if error != nil {
+                    Crashlytics.crashlytics().log("[ERROR] AuthViewModel.registerUser() error = \(error!.localizedDescription)")
                 }
+                else {
+                    completion(true)
+                    self.userSession = user
+                }
+            }
+            LoadingState.shared.isLoading = false
+        }
     }
-    
-    
 
     func signOut() {
         userSession = nil
