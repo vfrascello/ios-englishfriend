@@ -45,7 +45,7 @@
 		6168DB82265B8C4000CB2BA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6168DB81265B8C4000CB2BA2 /* GoogleService-Info.plist */; };
 		616B71F626A7D44D005D928D /* LoadingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B71F526A7D44D005D928D /* LoadingState.swift */; };
 		616B71F826A7DB11005D928D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B71F726A7DB11005D928D /* LoadingView.swift */; };
-		C49AE5BA265B755000884AE1 /* EnglishFriendUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5B9265B755000884AE1 /* EnglishFriendUser.swift */; };
+		C49AE5BA265B755000884AE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5B9265B755000884AE1 /* User.swift */; };
 		C49AE5C0265C1CF800884AE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5BF265C1CF800884AE1 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,7 +107,7 @@
 		6168DB81265B8C4000CB2BA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		616B71F526A7D44D005D928D /* LoadingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingState.swift; sourceTree = "<group>"; };
 		616B71F726A7DB11005D928D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
-		C49AE5B9265B755000884AE1 /* EnglishFriendUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnglishFriendUser.swift; sourceTree = "<group>"; };
+		C49AE5B9265B755000884AE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C49AE5BF265C1CF800884AE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,7 +279,7 @@
 		C49AE5B8265B74D700884AE1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C49AE5B9265B755000884AE1 /* EnglishFriendUser.swift */,
+				C49AE5B9265B755000884AE1 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -440,7 +440,7 @@
 				6145474F265B5F5200C85B96 /* KeyboardAdaptiveViewModifier.swift in Sources */,
 				6145474B265B5F5200C85B96 /* ExtendedDivider.swift in Sources */,
 				61454750265B5F5200C85B96 /* DateHelper.swift in Sources */,
-				C49AE5BA265B755000884AE1 /* EnglishFriendUser.swift in Sources */,
+				C49AE5BA265B755000884AE1 /* User.swift in Sources */,
 				6145475C265B664B00C85B96 /* RegistrationView.swift in Sources */,
 				61454745265B5F5200C85B96 /* ViewModifiers.swift in Sources */,
 				61454742265B5F5200C85B96 /* UsernameTextField.swift in Sources */,

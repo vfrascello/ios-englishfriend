@@ -13,7 +13,7 @@ struct LoginView: View {
                 ZStack {
                     VStack {
                         Spacer()
-                        Image("SplashLogo")
+                        Image(systemName: "mouth.fill")
                             .resizable()
                             .scaledToFill()
                             .frame(width: 160, height: 100)
