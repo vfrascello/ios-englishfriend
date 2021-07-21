@@ -12,7 +12,10 @@ struct ContentView: View {
                 ZStack{
                     TabView(selection: $selectedIndex) {
                         NavigationView {
-                            Text("Matching View")
+                            Button(action: {
+                                viewModel.signOut()
+                            }, label: {
+                                    Text("Sign Out")})
                                 .onTapGesture {
                                     selectedIndex = 0
                                 }

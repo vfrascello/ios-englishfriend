@@ -11,7 +11,7 @@ struct EnglishFriendApp: App {
 
     init() {
         FirebaseApp.configure()
-        UINavigationBar.appearance().barTintColor = UIColor(#colorLiteral(red: 0.3007570207, green: 0.5991899967, blue: 0.3707683086, alpha: 1))
+        UINavigationBar.appearance().barTintColor = UIColor(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1))
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
     }

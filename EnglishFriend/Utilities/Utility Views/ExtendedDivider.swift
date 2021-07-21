@@ -8,7 +8,7 @@ struct ExtendedDivider: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(colorScheme == .dark ? Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) : Color(#colorLiteral(red: 0.3007570207, green: 0.5991899967, blue: 0.3707683086, alpha: 1)))
+                .fill(colorScheme == .dark ? Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)) : Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)))
                 .applyIf(direction == .vertical) {
                     $0.frame(width: width)
                     .edgesIgnoringSafeArea(.vertical)

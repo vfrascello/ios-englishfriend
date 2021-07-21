@@ -47,7 +47,7 @@ struct LoginView: View {
                                         .resizable()
                                         .frame(width: 20, height: 20, alignment: .trailing)
                                         .scaledToFit()
-                                    Text("Continue with Scedugame").bold().font(.system(size: 15))
+                                    Text("Continue with Email").bold().font(.system(size: 15))
 
                                 }.padding(.leading, 20)
                                 .foregroundColor(.black)
@@ -102,7 +102,7 @@ struct LoginView: View {
                             }).padding(.bottom, 20)
                     }
                 }.hideNavigationBar()
-                .background(Color(#colorLiteral(red: 0.3007570207, green: 0.5991899967, blue: 0.3707683086, alpha: 1)))
+                .background(Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)))
                 .ignoresSafeArea()
                 .keyboardAdaptive()
             }.navigationViewStyle(StackNavigationViewStyle())

@@ -26,7 +26,7 @@ struct PasswordResetView: View {
                 }, label: {
                     Text("Reset Password")
                         .font(.headline)
-                        .foregroundColor(Color(#colorLiteral(red: 0.3007570207, green: 0.5991899967, blue: 0.3707683086, alpha: 1)))
+                        .foregroundColor(Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)))
                         .frame(width: 300, height: 50)
                         .background(Color(.white))
                         .clipShape(Capsule())
@@ -40,7 +40,7 @@ struct PasswordResetView: View {
                     label: {
                         Text("Go Back")
                             .font(.headline)
-                            .foregroundColor(Color(#colorLiteral(red: 0.3007570207, green: 0.5991899967, blue: 0.3707683086, alpha: 1)))
+                            .foregroundColor(Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)))
                             .frame(width: 300, height: 50)
                             .background(Color(.white))
                             .clipShape(Capsule())
@@ -51,7 +51,7 @@ struct PasswordResetView: View {
             .padding(.top, 200)
             .foregroundColor(.white)
             .hideNavigationBar()
-            .background(Color(#colorLiteral(red: 0.3007570207, green: 0.5991899967, blue: 0.3707683086, alpha: 1)))
+            .background(Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)))
             .ignoresSafeArea()
             
         }
