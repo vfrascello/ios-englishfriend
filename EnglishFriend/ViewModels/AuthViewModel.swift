@@ -93,4 +93,33 @@ class AuthViewModel: ObservableObject {
         }
     }
 
+    func updateProfileImage(profileImage: UIImage) {
+        guard let user = Auth.auth().currentUser else { return }
+
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else {
+            Crashlytics.crashlytics().log("[ERROR] AuthViewModel.updateProfileImage() image could not be converted to JPEG")
+            return
+        }
+
+        let filename = NSUUID().uuidString
+        let storageReference = Storage.storage().reference().child(filename)
+        storageReference.putData(imageData, metadata: nil) { _, error in
+            if let error = error {
+                Crashlytics.crashlytics().log("[ERROR] AuthViewModel.updateProfileImage() error = \(error.localizedDescription)")
+                return
+            }
+            storageReference.downloadURL { url, _ in
+                guard let profileImageURL = url?.absoluteString else { return }
+
+                let data: [String: Any] = ["profileImageUrl": profileImageURL]
+
+                Firestore.firestore().collection("users").document(user.uid).setData(data, merge: true) { error in
+                    if error != nil {
+                        Crashlytics.crashlytics().log("[ERROR] AuthViewModel.updateProfileImage() error = \(error!.localizedDescription)")
+                    }
+
+                }
+            }
+        }
+    }
 }

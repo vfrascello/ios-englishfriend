@@ -20,7 +20,7 @@ struct User  {
         self.primaryLanguage = dictionary["primaryLanguage"] as? Languages ?? .spanish
         self.nativeLanguage = dictionary["nativeLanguage"] as? Languages ?? .spanish
         self.initialSkillLevel = dictionary["initialSkillLevel"] as? Int ?? 0
-        self.isCurrentUser = Auth.auth().currentUser?.uid == self.uid
+        self.isCurrentUser = true //Auth.auth().currentUser?.uid == self.uid
         self.isShowingTutorialPopup = dictionary["isShowingTutorialPopup"] as? Bool ?? true
         self.currentFCMToken = dictionary["currentFCMToken"] as? String ?? ""
         self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
