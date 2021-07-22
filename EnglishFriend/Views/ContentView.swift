@@ -13,10 +13,7 @@ struct ContentView: View {
                 ZStack {
                     TabView(selection: $selectedIndex) {
                         NavigationView {
-                            Button(action: {
-                                viewModel.signOut()
-                            }, label: {
-                                Text("Sign Out") })
+                            Text("Match")
                                 .onTapGesture {
                                 selectedIndex = 0
                             }
@@ -53,7 +50,7 @@ struct ContentView: View {
                             Text("Messages").font(.subheadline)
                         }.tag(2).hideNavigationBar().navigationViewStyle(StackNavigationViewStyle())
                         NavigationView {
-                            Text("User Profile")
+                            UserProfileView(user: MOCK_USER)
                                 .onTapGesture {
                                 selectedIndex = 3
                             }

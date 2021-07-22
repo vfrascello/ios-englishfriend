@@ -5,6 +5,7 @@ struct User  {
     var username: String?
     var email: String?
     var primaryLanguage: Languages?
+    var nativeLanguage: Languages?
     var initialSkillLevel: Int?
     var isShowingTutorialPopup: Bool
     let isCurrentUser: Bool
@@ -17,6 +18,7 @@ struct User  {
         self.username = dictionary["username"] as? String ?? ""
         self.email = dictionary["email"] as? String ?? ""
         self.primaryLanguage = dictionary["primaryLanguage"] as? Languages ?? .spanish
+        self.nativeLanguage = dictionary["nativeLanguage"] as? Languages ?? .spanish
         self.initialSkillLevel = dictionary["initialSkillLevel"] as? Int ?? 0
         self.isCurrentUser = Auth.auth().currentUser?.uid == self.uid
         self.isShowingTutorialPopup = dictionary["isShowingTutorialPopup"] as? Bool ?? true

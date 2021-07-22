@@ -10,3 +10,12 @@ enum Languages: String {
     case french = "French"
     case german = "German"
 }
+
+enum ActiveProfileSheet: Identifiable {
+   case signup, profileImage
+   var id: Int {
+      hashValue
+   }
+}
+
+var MOCK_USER = User(dictionary: ["uid": 1, "username": "Mock User"])
