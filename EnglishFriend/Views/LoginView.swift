@@ -13,6 +13,7 @@ struct LoginView: View {
                 ZStack {
                     VStack {
                         Spacer()
+                        Text("English Friend").font(.title).bold().foregroundColor(.white)
                         Image(systemName: "mouth.fill")
                             .resizable()
                             .scaledToFill()
@@ -44,7 +45,7 @@ struct LoginView: View {
                                         .resizable()
                                         .frame(width: 20, height: 20, alignment: .trailing)
                                         .scaledToFit()
-                                    Text("Continue with Email").bold().font(.system(size: 15))
+                                    Text("Continue with Email").bold().font(.system(size: 15)).foregroundColor(Color(#colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)))
                                 }.padding(.leading, 20)
                                 .foregroundColor(.black)
                                 .frame(width: 250, height: 40, alignment: .leading)

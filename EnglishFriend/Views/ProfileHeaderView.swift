@@ -15,12 +15,10 @@ struct ProfileHeaderView: View {
     var body: some View {
         VStack {
             ZStack(alignment: .bottomTrailing) {
-
-               // KFImage(URL(string: viewModel.user.profileImageUrl))
-               //     .loadImmediately()
-               //     .fade(duration: 0.5)
-                VStack {
-                Image(systemName: "person").resizable()
+                KFImage(URL(string: viewModel.user.profileImageUrl))
+                    .loadImmediately()
+                    .fade(duration: 0.5)
+                    .resizable()
                     .scaledToFill()
                     .clipped()
                     .frame(width: 120, height: 120)
@@ -34,19 +32,15 @@ struct ProfileHeaderView: View {
                             Image(systemName: "square.and.pencil").foregroundColor(.blue).opacity(0.5)
                         })
                     }
+                }
                 Text(viewModel.user.username ?? "no name")
                     Text("Native Language: \(viewModel.user.nativeLanguage!.rawValue)")
                     Text("Learning Language: \(viewModel.user.nativeLanguage!.rawValue)")
 
-                }
-      }.sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: { ImagePicker(image: $selectedUIImage) })
-
-
+                }.sheet(isPresented: $showImagePicker, onDismiss: loadImage, content: { ImagePicker(image: $selectedUIImage) })
         if (viewModel.user.isCurrentUser)
         {
 
         }
-
-    }
 }
 }

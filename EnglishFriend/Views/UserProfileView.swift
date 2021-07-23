@@ -13,11 +13,13 @@ struct UserProfileView: View {
     }
 
     var body: some View {
+        VStack{
         ProfileHeaderView(viewModel: viewModel)
         Button(action: {
             AuthViewModel.shared.signOut()
         }, label: {
             Text("Sign Out") })
+        }
     }
 }
 
