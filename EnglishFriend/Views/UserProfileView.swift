@@ -6,6 +6,7 @@ struct UserProfileView: View {
     @ObservedObject var viewModel: ProfileViewModel
     @State var isShowingToast: Bool = AuthViewModel.shared.user?.isShowingTutorialPopup ?? false
     @State var activeProfileSheet: ActiveProfileSheet? = nil
+    @State var filterOption: FilterOptions = .biography
 
     init(user: User)
     {
@@ -15,6 +16,7 @@ struct UserProfileView: View {
     var body: some View {
         VStack{
         ProfileHeaderView(viewModel: viewModel)
+            FilterView(selectedOption: $filterOption)
         Button(action: {
             AuthViewModel.shared.signOut()
         }, label: {

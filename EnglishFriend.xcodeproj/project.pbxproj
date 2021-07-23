@@ -51,6 +51,7 @@
 		6173065126AA68ED002F794B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 6173065026AA68ED002F794B /* FirebaseAuth */; };
 		6173065326AA68ED002F794B /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 6173065226AA68ED002F794B /* FirebaseFirestore */; };
 		6173065526AA68ED002F794B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6173065426AA68ED002F794B /* FirebaseStorage */; };
+		6173065726AA7D82002F794B /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6173065626AA7D82002F794B /* FilterView.swift */; };
 		C49AE5BA265B755000884AE1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5B9265B755000884AE1 /* User.swift */; };
 		C49AE5C0265C1CF800884AE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49AE5BF265C1CF800884AE1 /* Constants.swift */; };
 /* End PBXBuildFile section */
@@ -116,6 +117,7 @@
 		616B71F926A9288B005D928D /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		616B71FB26A9295C005D928D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		616B71FE26A92E5E005D928D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		6173065626AA7D82002F794B /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		C49AE5B9265B755000884AE1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C49AE5BF265C1CF800884AE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,6 +285,7 @@
 				614546F3265B5A0C00C85B96 /* ContentView.swift */,
 				616B71F926A9288B005D928D /* UserProfileView.swift */,
 				616B71FE26A92E5E005D928D /* ProfileHeaderView.swift */,
+				6173065626AA7D82002F794B /* FilterView.swift */,
 				6145475A265B664B00C85B96 /* LoginView.swift */,
 				6145475B265B664B00C85B96 /* PasswordResetView.swift */,
 				61454759265B664B00C85B96 /* RegistrationView.swift */,
@@ -470,6 +473,7 @@
 				61454749265B5F5200C85B96 /* SearchBarWithClear.swift in Sources */,
 				61454746265B5F5200C85B96 /* SearchBar.swift in Sources */,
 				61454755265B61AC00C85B96 /* AuthViewModel.swift in Sources */,
+				6173065726AA7D82002F794B /* FilterView.swift in Sources */,
 				6145474D265B5F5200C85B96 /* KeyboardHeightPublisher.swift in Sources */,
 				616B71FA26A9288B005D928D /* UserProfileView.swift in Sources */,
 				6145475E265B664B00C85B96 /* PasswordResetView.swift in Sources */,

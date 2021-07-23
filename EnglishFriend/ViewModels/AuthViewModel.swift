@@ -19,7 +19,7 @@ class AuthViewModel: ObservableObject {
 
     init()
     {
-        LoadingState.shared.isLoading = true
+       
         userSession = Auth.auth().currentUser
         selectedIndex = 0
         fetchUserData() { LoadingState.shared.isLoading = false }
