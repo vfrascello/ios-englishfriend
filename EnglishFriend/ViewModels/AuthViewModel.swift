@@ -1,5 +1,6 @@
 import SwiftUI
 import Firebase
+import FirebaseAuth
 //import Purchases
 //import CryptoKit
 import Foundation
@@ -12,13 +13,16 @@ class AuthViewModel: ObservableObject {
     @Published var user: User?
     @Published var selectedIndex: Int
     @Published var authenticationFailed: Bool = false
-
+    @Published var userDataComplete: Bool = false
+    
     static let shared = AuthViewModel()
 
     init()
     {
+       
         userSession = Auth.auth().currentUser
         selectedIndex = 0
+        fetchUserData() { LoadingState.shared.isLoading = false }
     }
 
     func login(withEmail email: String, password: String)
@@ -37,7 +41,10 @@ class AuthViewModel: ObservableObject {
             }
             self.authenticationFailed = false
             self.userSession = result?.user
-            LoadingState.shared.isLoading = false
+            self.fetchUserData() {
+                LoadingState.shared.isLoading = false
+            }
+
         }
     }
 
@@ -72,7 +79,9 @@ class AuthViewModel: ObservableObject {
                     self.userSession = user
                 }
             }
-            LoadingState.shared.isLoading = false
+            self.fetchUserData() {
+                LoadingState.shared.isLoading = false
+            }
         }
     }
 
@@ -93,4 +102,55 @@ class AuthViewModel: ObservableObject {
         }
     }
 
+    func fetchUserData(completion: @escaping () -> ()) {
+        guard let uid = userSession?.uid else {
+            return }
+        print("[STARTED] fetchUserData ():", uid)
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+            if error != nil {
+                Crashlytics.crashlytics().log("[ERROR] fetchUserData()  error = \(error!.localizedDescription)")
+                return
+            }
+            guard let data = snapshot?.data() else {
+                return }
+            self.user = User(dictionary: data)
+            print("Got user.")
+            print(self.user?.email)
+            if (self.user?.username != "")
+            {
+                self.userDataComplete = true
+            }
+        }
+        completion()
+    }
+
+    func updateProfileImage(profileImage: UIImage) {
+        guard let user = Auth.auth().currentUser else { return }
+
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else {
+            Crashlytics.crashlytics().log("[ERROR] AuthViewModel.updateProfileImage() image could not be converted to JPEG")
+            return
+        }
+
+        let filename = NSUUID().uuidString
+        let storageReference = Storage.storage().reference().child(filename)
+        storageReference.putData(imageData, metadata: nil) { _, error in
+            if let error = error {
+                Crashlytics.crashlytics().log("[ERROR] AuthViewModel.updateProfileImage() error = \(error.localizedDescription)")
+                return
+            }
+            storageReference.downloadURL { url, _ in
+                guard let profileImageURL = url?.absoluteString else { return }
+
+                let data: [String: Any] = ["profileImageUrl": profileImageURL]
+
+                Firestore.firestore().collection("users").document(user.uid).setData(data, merge: true) { error in
+                    if error != nil {
+                        Crashlytics.crashlytics().log("[ERROR] AuthViewModel.updateProfileImage() error = \(error!.localizedDescription)")
+                    }
+
+                }
+            }
+        }
+    }
 }

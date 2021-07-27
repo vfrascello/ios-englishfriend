@@ -9,14 +9,11 @@ struct ContentView: View {
 
     var body: some View {
         if viewModel.userSession != nil && viewModel.authenticationFailed == false {
-            if !loadingState.isLoading {
+            if !loadingState.isLoading && viewModel.userDataComplete {
                 ZStack {
                     TabView(selection: $selectedIndex) {
                         NavigationView {
-                            Button(action: {
-                                viewModel.signOut()
-                            }, label: {
-                                Text("Sign Out") })
+                            Text("Match")
                                 .onTapGesture {
                                 selectedIndex = 0
                             }
@@ -53,7 +50,7 @@ struct ContentView: View {
                             Text("Messages").font(.subheadline)
                         }.tag(2).hideNavigationBar().navigationViewStyle(StackNavigationViewStyle())
                         NavigationView {
-                            Text("User Profile")
+                            UserProfileView(user: viewModel.user!)
                                 .onTapGesture {
                                 selectedIndex = 3
                             }
