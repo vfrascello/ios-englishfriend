@@ -4,9 +4,9 @@ import Firebase
 @main
 struct EnglishFriendApp: App {
 
-  //  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+
     @Environment(\.scenePhase) private var phase
-    //@Environment(\.window) var window: UIWindow?
+
 
 
     init() {
@@ -18,7 +18,7 @@ struct EnglishFriendApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView(selectedIndex: 0).environmentObject(AuthViewModel.shared)
+            ContentView(selectedIndex: 0).environmentObject(AuthViewModel.shared).environmentObject(LoadingState.shared)
         }
     }
 }

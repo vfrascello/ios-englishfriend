@@ -26,7 +26,7 @@ struct RegistrationView: View {
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
                     
-                    CustomTextField(text: $username, placeholder: Text("Username"), imageName: "person.fill.turn.right")
+                    CustomTextField(text: $username, placeholder: Text("Username"), imageName: "person.fill")
                         .padding()
                         .background(Color(.init(white: 1, alpha: 0.15)))
                         .cornerRadius(10)
@@ -44,10 +44,10 @@ struct RegistrationView: View {
                     viewModel.createUser(email: email, password: password, username: username, primaryLanguage: primaryLanguage) { registrationComplete in
                         print("new user created:", registrationComplete)
                     }
-                        print("Arsbic Conversion complete efore")
+
                 }, label: {
                     HStack{
-                        Text("Hey Dad")
+                        Text("Continue")
                     }.frame(width: 260, height: 30)
                     .animation(.easeIn)
                     .background(Color(.white))

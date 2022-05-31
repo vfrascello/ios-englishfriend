@@ -7,7 +7,6 @@ struct LoginView: View {
     @State var password: String
     @EnvironmentObject var viewModel: AuthViewModel
 
-
     var body: some View {
         GeometryReader { geometry in
             NavigationView {
@@ -29,7 +28,6 @@ struct LoginView: View {
                                 .background(Color(.init(white: 1, alpha: 0.15)))
                                 .cornerRadius(10)
                                 .disableAutocorrection(true)
-                            
                             CustomSecureField(text: $password, placeholder: Text("Password"), imageName: "lock")
                                 .padding()
                                 .background(Color(.init(white: 1, alpha: 0.15)))
@@ -37,7 +35,6 @@ struct LoginView: View {
                         }.padding(.horizontal, 40).padding(.bottom,10)
                         .foregroundColor(.white)
                         .disableAutocorrection(true)
-            
                         VStack(spacing: 10){
                             Button(action: {
                                 viewModel.login(withEmail: email, password: password)
@@ -48,7 +45,6 @@ struct LoginView: View {
                                         .frame(width: 20, height: 20, alignment: .trailing)
                                         .scaledToFit()
                                     Text("Continue with Email").bold().font(.system(size: 15))
-
                                 }.padding(.leading, 20)
                                 .foregroundColor(.black)
                                 .frame(width: 250, height: 40, alignment: .leading)
@@ -57,7 +53,6 @@ struct LoginView: View {
                             })
                         }
                         Spacer()
-                            
                             .alert(isPresented: $viewModel.authenticationFailed) {
                                 Alert(
                                     title: Text("Login Failed"),
@@ -69,25 +64,18 @@ struct LoginView: View {
                                     }
                                 )
                             }
-                        
-                        
-                        
                         NavigationLink(
                             destination: RegistrationView().hideNavigationBar(),
                             label: {
                                 HStack {
                                     Text("Don't have an account?")
                                         .font(.system(size: 14))
-                                    
                                     Text("Sign Up").bold()
-                                        
                                         .font(.system(size: 14, weight: .semibold))
-                                    
                                 }
                                 .foregroundColor(.white)
                                 .padding(.bottom, 40)
                             })
-                        
                         NavigationLink(
                             destination: PasswordResetView().hideNavigationBar(),
                             label: {
@@ -107,9 +95,6 @@ struct LoginView: View {
                 .keyboardAdaptive()
             }.navigationViewStyle(StackNavigationViewStyle())
         }.dismissKeyboardOnTap()
-        
     }
-
-
 }
 
